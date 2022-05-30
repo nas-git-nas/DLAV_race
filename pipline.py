@@ -1,4 +1,5 @@
 from alpha_pose_interface import AlphaPoseInterface
+import theMachine
 import cv2
 
 
@@ -9,15 +10,15 @@ import cv2
 alpha_pose = AlphaPoseInterface()
 
 # TODO: Tracking
-#tracking = Tracker()
+machine = theMachine()
 
-POI_detected = False
+# POI_detected = False
 
 
 
 
 def pipline(img):
-    if not POI_detected:
+    if not machine.tracking_poi:
         POI_bbox = alpha_pose.getPOI(img)
 
         # TODO: Tracking
